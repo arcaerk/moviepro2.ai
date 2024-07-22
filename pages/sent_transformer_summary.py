@@ -6,8 +6,12 @@ import ast
 
 st.markdown("<h1 style='text-align: center;color:blue;'>Moviepro.ai</h1>", unsafe_allow_html=True)
 st.write("## Organize your movie scripts, powered by AI")
+@st.cache_data
+def load_data():
+    df=pd.read_csv('new_df.csv')
+    return df
 
-df = pd.read_csv('new_df.csv')
+df=load_data()
 
 # Convert embeddings from string representation back to numpy arrays
 def parse_embeddings(embedding_str):
