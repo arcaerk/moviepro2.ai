@@ -19,7 +19,7 @@ def parse_embeddings(embedding_str):
 
 # Apply parsing function to the Embeddings column
 df['Embeddings'] = df['Embeddings'].apply(parse_embeddings)
-
+@st.cache_data
 def get_similar_plots(movie_title):
     movie_df = df[df['Movie Name'].str.match(movie_title)]
     
